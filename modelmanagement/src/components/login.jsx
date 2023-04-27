@@ -1,31 +1,32 @@
 import { useState } from "react";
-import "./components.css";
+
 export function ControlledForm() {
-    const [email, setEmail] = useState('');
-    const [password, Setpassword] = useState('');
+  const [formData, setFormData] = useState({ email: '', password: '' });
 
+  function handleChange(event) {
+    const { name, value } = event.target;
+    setFormData(prevFormData => ({
+      ...prevFormData,
+      [name]: value
+    }));
+  }
 
-    function handleEmail(event) {
-        setEmail(event.target.value );
-    }
-    function handlePassword(event) {
-        Setpassword(event.target.value );
-    }
-    function handleSubmit(event) {
-        alert('Login info is: ' + email + ' ' + password);
-        event.preventDefault();
-    }
-return (
-    <form className="loginForm" onSubmit={handleSubmit}>
-        <label className="emailLabel">
-            Email:
-        <input type="text" value={email} onChange={handleEmail} />
-        </label>
-        <label className="passwordLabel">
-            Password:
-        <input type="text" value={password} onChange={handlePassword} />
-        </label>
-        <input type="submit" value="Submit" />
+  function handleSubmit(event) {
+    alert('Login info is: ' + formData.email + ' ' + formData.password);
+    event.preventDefault();
+  }
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <label>
+        Email:
+        <input type="text" name="email" value={formData.email} onChange={handleChange} />
+      </label>
+      <label>
+        Password:
+        <input type="text" name="password" value={formData.password} onChange={handleChange} />
+      </label>
+      <input type="submit" value="Submit" />
     </form>
-);
+  );
 }
