@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./components.css";
 export function ControlledForm() {
     const initialState = { value: '' };
     const [email, setEmail] = useState(initialState);
@@ -16,12 +17,12 @@ export function ControlledForm() {
         event.preventDefault();
     }
 return (
-    <form onSubmit={handleSubmit}>
-        <label>
+    <form className="loginForm" onSubmit={handleSubmit}>
+        <label className="emailLabel">
             Email:
         <input type="text" value={email.value} onChange={handleEmail} />
         </label>
-        <label>
+        <label className="passwordLabel">
             Password:
         <input type="text" value={password.value} onChange={handlePassword} />
         </label>
