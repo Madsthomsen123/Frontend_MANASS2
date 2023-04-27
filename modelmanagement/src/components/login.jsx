@@ -6,24 +6,24 @@ export function ControlledForm() {
 
 
     function handleEmail(event) {
-        setState({ value: event.target.value });
+        setEmail({ value: event.target.value });
     }
     function handlePassword(event) {
-        setState({ value: event.target.value });
+        Setpassword({ value: event.target.value });
     }
     function handleSubmit(event) {
-        alert('Login info is: ' + state.value);
+        alert('Login info is: ' + email.value + password.value);
         event.preventDefault();
     }
 return (
     <form onSubmit={handleSubmit}>
         <label>
             Email:
-        <input type="text" value={state.value} onChange={handleEmail} />
+        <input type="text" value={email.value} onChange={handleEmail} />
         </label>
         <label>
             Password:
-        <input type="text" value={state.value} onChange={handlePassword} />
+        <input type="text" value={password.value} onChange={handlePassword} />
         </label>
         <input type="submit" value="Submit" />
     </form>
