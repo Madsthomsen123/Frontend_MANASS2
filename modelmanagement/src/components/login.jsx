@@ -1,29 +1,28 @@
 import { useState } from "react";
 export function ControlledForm() {
-    const initialState = { value: '' };
-    const [email, setEmail] = useState(initialState);
-    const [password, Setpassword] = useState(initialState);
+    const [email, setEmail] = useState('');
+    const [password, Setpassword] = useState('');
 
 
     function handleEmail(event) {
-        setEmail({ value: event.target.value });
+        setEmail(event.target.value );
     }
     function handlePassword(event) {
-        Setpassword({ value: event.target.value });
+        Setpassword(event.target.value );
     }
     function handleSubmit(event) {
-        alert('Login info is: ' + email.value + password.value);
+        alert('Login info is: ' + email + ' ' + password);
         event.preventDefault();
     }
 return (
     <form onSubmit={handleSubmit}>
         <label>
             Email:
-        <input type="text" value={email.value} onChange={handleEmail} />
+        <input type="text" value={email} onChange={handleEmail} />
         </label>
         <label>
             Password:
-        <input type="text" value={password.value} onChange={handlePassword} />
+        <input type="text" value={password} onChange={handlePassword} />
         </label>
         <input type="submit" value="Submit" />
     </form>
