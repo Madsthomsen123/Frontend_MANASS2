@@ -8,6 +8,9 @@ return (
     <NavLink to="/">
         Home    
     </NavLink>
+    <NavLink to="/newModel">
+        New Model    
+    </NavLink>
 </nav>
 )
 }
