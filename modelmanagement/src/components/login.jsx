@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./css/components.css";
 import { useNavigate } from "react-router-dom";
 
 export function ControlledForm() {
@@ -43,16 +44,16 @@ export function ControlledForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
+    <form className="loginForm" onSubmit={handleSubmit}>
+      <label className="emailLabel">
         Email:
-        <input type="text" name="email" value={formData.email} onChange={handleChange} />
+        <input className="emailInput" type="text" name="email" value={formData.email} onChange={handleChange} />
       </label>
-      <label>
+      <label className="passwordLabel" >
         Password:
-        <input type="password" name="password" value={formData.password} onChange={handleChange} />
+        <input className="passwordInput" type="password" name="password" value={formData.password} onChange={handleChange} />
       </label>
-      <input type="submit" value="Submit" />
+      <input className="submitButton" type="submit" value="Submit" />
     </form>
   );
 }

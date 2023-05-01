@@ -7,7 +7,7 @@ import {
   Route,
 } from "react-router-dom";
 import { Navbar } from './components/Navbar';
-import { NewManager } from './components/NewManager';
+import { NewManager } from './components/newManager';
 
 
 function App() {
