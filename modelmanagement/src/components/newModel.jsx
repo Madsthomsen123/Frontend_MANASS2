@@ -20,39 +20,43 @@ export function NewModel() {
     const [comments, setComments] = useState('');
     const [password, setPassword] = useState('');
 
-   const handleSubmit = (e) =>{
-    e.preventDefault();
-
-    const formData = {
-        firstName,
-        lastName,
-        email,
-        phoneNo,
-        addressLine1,
-        addressLine2,
-        zip,
-        city,
-        country,
-        birthDate,
-        nationality,
-        height,
-        shoeSize,
-        hairColor,
-        eyeColor,
-        comments,
-        password
-   };
-   fetch('https://localhost:7181/api/models', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(formData)
-  })
-  .then(response => response.json())
-  .then(data => console.log(data))
-  .catch(error => console.error(error));
-};
+    const handleSubmit = (e) => {
+        e.preventDefault();
+      
+        const token = localStorage.getItem('token');
+      
+        const formData = {
+          firstName,
+          lastName,
+          email,
+          phoneNo,
+          addressLine1,
+          addressLine2,
+          zip,
+          city,
+          country,
+          birthDate,
+          nationality,
+          height,
+          shoeSize,
+          hairColor,
+          eyeColor,
+          comments,
+          password
+        };
+      
+        fetch('https://localhost:7181/api/models', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          },
+          body: JSON.stringify(formData)
+        })
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(error => console.error(error));
+      };
     
     return (
       <form className="NewModelForm" onSubmit={handleSubmit}>
