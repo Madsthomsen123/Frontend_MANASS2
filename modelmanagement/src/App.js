@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import { Navbar } from './components/Navbar';
 import { NewManager } from './components/newManager';
+import { NewModel } from './components/NewModel.jsx';
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
           <Route path="/" element={<ControlledForm />} />
           <Route path="/home" element={<Navbar />} />
           <Route path="/newManager" element={< NewManager/>} />
+          <Route path="/NewModel" element={<NewModel />} />
         </Routes>
       </Router>
      

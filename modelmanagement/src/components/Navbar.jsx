@@ -9,7 +9,10 @@ return (
         Home    
     </NavLink>
     <NavLink to="/newManager">
-        new manager    
+        new manager  
+    </NavLink>  
+    <NavLink to="/newModel">
+        New Model    
     </NavLink>
 </nav>
 )

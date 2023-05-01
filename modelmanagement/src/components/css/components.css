@@ -5,7 +5,6 @@ html, body {
   body {
     display: flex;
     justify-content: center;
-    align-items: center;
     background-image: url(https://images.alphacoders.com/529/529805.jpg);
   }
 
@@ -17,6 +16,7 @@ html, body {
     border-radius: 5%;
     border-width: medium;
     padding: 10px;
+    margin-top: 250px;
   }
   
   .emailLabel,
