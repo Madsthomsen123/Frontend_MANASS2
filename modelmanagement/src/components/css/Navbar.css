@@ -12,8 +12,9 @@ body, html {
     color: #fff;
   }
   
-  
-  
+  body.nav_link{
+    align-items: top;
+  }
   .nav_link .nav_logo {
     margin-right: 20px;
   }
@@ -44,6 +45,6 @@ body, html {
   }
   
   .nav_link a:hover {
-    border-bottom: 3px solid #42f59e;
+    border-bottom: 3px solid palevioletred;
   }
   
