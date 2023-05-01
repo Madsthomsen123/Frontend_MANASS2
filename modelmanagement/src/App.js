@@ -7,6 +7,7 @@ import {
   Route,
 } from "react-router-dom";
 import { Navbar } from './components/Navbar';
+import { NewManager } from './components/NewManager';
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Routes>
           <Route path="/" element={<ControlledForm />} />
           <Route path="/home" element={<Navbar />} />
+          <Route path="/newManager" element={< NewManager/>} />
         </Routes>
       </Router>
      
