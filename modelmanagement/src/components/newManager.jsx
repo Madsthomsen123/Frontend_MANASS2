@@ -15,7 +15,6 @@ export function ControlledForm() {
   function handleSubmit(event) {
     alert('Login info is: ' + formData.email + ' ' + formData.password);
     event.preventDefault();
-    
   }
 
   return (
