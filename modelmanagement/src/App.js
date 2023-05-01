@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 import { Navbar } from './components/Navbar';
 import { NewManager } from './components/newManager';
-import { NewModel } from './components/NewModel.jsx';
+import { NewModel } from './components/newModel.jsx';
 
 
 function App() {
