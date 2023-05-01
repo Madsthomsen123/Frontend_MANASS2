@@ -25,7 +25,7 @@ export function ControlledForm() {
       </label>
       <label className="passwordLabel" >
         Password:
-        <input type="text" name="password" value={formData.password} onChange={handleChange} />
+        <input type="password" name="password" value={formData.password} onChange={handleChange} />
       </label>
       <input className="submitButton" type="submit" value="Submit" />
     </form>
