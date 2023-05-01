@@ -6,7 +6,16 @@ export function Navbar() {
 return (
     <nav className="nav_link">
     <NavLink to="/">
-        Home    
+        Login    
+    </NavLink>
+    <NavLink to="/newModel">
+        New Model    
+    </NavLink>
+    <NavLink to="/newManager">
+        New Manager    
+    </NavLink>
+    <NavLink to="/createJob">
+        Create Job   
     </NavLink>
 </nav>
 )
