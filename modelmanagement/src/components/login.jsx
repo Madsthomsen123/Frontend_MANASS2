@@ -26,7 +26,7 @@ return (
             Password:
         <input type="text" value={password.value} onChange={handlePassword} />
         </label>
-        <input type="submit" value="Submit" />
+        <input className="submitButton" type="submit" value="Submit" />
     </form>
 );
 }

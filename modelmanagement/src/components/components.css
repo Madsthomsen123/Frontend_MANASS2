@@ -1,7 +1,22 @@
+html, body {
+    height: 100%;
+  }
+  
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(https://images.alphacoders.com/529/529805.jpg);
+  }
+
 .loginForm {
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-style: ridge;
+    border-radius: 5%;
+    border-width: medium;
+    padding: 10px;
   }
   
   .emailLabel,
@@ -9,8 +24,19 @@
     display: flex;
     flex-direction: column;
     margin-bottom: 10px;
+    text-align: left;
+  }
+
+  .submitButton{
+    background-color: pink;
+    border-radius: 10%;
+    border-width: medium;
   }
   
+  .submitButton:hover{
+    background-color: palevioletred;
+  }
+
   input[type="text"] {
     padding: 5px;
     margin-top: 5px;
