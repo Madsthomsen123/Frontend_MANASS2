@@ -15,7 +15,7 @@ export function CreateJob(){
           const token = localStorage.getItem('token');
           if (!token) throw new Error("Token not found in localStorage");
       
-          const response = await fetch("api/Jobs", {
+          const response = await fetch("https://localhost:7181/api/Jobs", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
