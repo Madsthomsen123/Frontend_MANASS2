@@ -1,11 +1,13 @@
 .NewModelForm{
-    display: flex;
-    flex-direction: column;
-    align-items: right;
-    border-style: ridge;
-    border-radius: 5%;
-    border-width: medium;
-    padding: 10px;
+  display: flex;
+  width: 20vw;
+  margin-left: 40vw;
+  flex-direction: column;
+  align-items: center;
+  border-style: ridge;
+  border-radius: 5%;
+  border-width: medium;
+  padding: 10px;
   }
   
   label {
