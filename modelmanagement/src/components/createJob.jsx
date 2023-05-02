@@ -9,11 +9,45 @@ export function CreateJob(){
     const [location, setLocation] = useState("");
     const [comments, setComments] = useState("");
 
-    function handleSubmit(event) {
-        event.preventDefault();
-        console.log(customer, startdate, days, location, comments);
-        // do something with the form data
-      }
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+          const token = localStorage.getItem('token');
+          if (!token) throw new Error("Token not found in localStorage");
+      
+          const response = await fetch("api/Jobs", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+            body: JSON.stringify({
+              customer,
+              startdate,
+              days,
+              location,
+              comments,
+            }),
+          });
+    
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+    
+          // Reset form
+          setCustomer('');
+          setstartDate('');
+          setDays(0);
+          setLocation('');
+          setComments('');
+    
+          // Show success message
+          alert('Job submitted successfully!');
+        } catch (error) {
+          console.error('Error:', error);
+          alert('An error occurred while submitting the job');
+        }
+      };
 
       return (
         <div>
