@@ -17,6 +17,9 @@ return (
     <NavLink to="/createJob">
         Create Job   
     </NavLink>
+    <NavLink to="/jobList">
+        Job List   
+    </NavLink>
 </nav>
 )
 }

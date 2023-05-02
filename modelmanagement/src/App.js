@@ -10,6 +10,7 @@ import { Navbar } from './components/Navbar';
 import { CreateJob } from './components/createJob';
 import { NewManager } from './components/newManager';
 import { NewModel } from './components/newModel.jsx';
+import JobList from './components/jobList';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
           <Route path="/createJob" element={<CreateJob/>} />
           <Route path="/newManager" element={< NewManager/>} />
           <Route path="/NewModel" element={<NewModel />} />
+          <Route path="/jobList" element={<JobList />} />
         </Routes>
       </Router>
      

@@ -1,0 +1,23 @@
+.job-table {
+    border-collapse: collapse;
+    width: 80%;
+    align-items: center;
+    margin-left: 10vw;
+  }
+  
+  .job-table th,
+  .job-table td {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+  }
+  
+  .job-table th {
+    background-color: #eee;
+    font-weight: bold;
+    text-align: left;
+  }
+  
+  .job-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
