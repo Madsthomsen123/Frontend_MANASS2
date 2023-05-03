@@ -12,6 +12,7 @@ import { NewManager } from './components/newManager';
 import { NewModel } from './components/newModel.jsx';
 import JobList from './components/jobList';
 import {AddModelToJobForm} from './components/addModel';
+import { DeleteModel } from './components/DeleteModel';
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
           <Route path="/NewModel" element={<NewModel />} />
           <Route path="/jobList" element={<JobList />} />
           <Route path="/addModel" element={<AddModelToJobForm />} />
+          <Route path="/DeleteModel" element={<DeleteModel />} />
         </Routes>
       </Router>
      

@@ -23,6 +23,10 @@ return (
     <NavLink to="/addModel">
         Add model   
     </NavLink>
+    <NavLink to="/deleteModel">
+        Delete Model
+    </NavLink>
+
 </nav>
 )
 }
