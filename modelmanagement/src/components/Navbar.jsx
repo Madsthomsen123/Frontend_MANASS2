@@ -20,6 +20,9 @@ return (
     <NavLink to="/jobList">
         Job List   
     </NavLink>
+    <NavLink to="/addModel">
+        Add model   
+    </NavLink>
 </nav>
 )
 }
