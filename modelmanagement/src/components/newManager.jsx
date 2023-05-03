@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { Navbar } from './Navbar';
+import "./css/NewManager.css"
 
 export function NewManager() {
   const initialState = {
@@ -55,15 +57,14 @@ export function NewManager() {
 
 
   return (
-    <form onSubmit={handleSubmit}>
+    <><Navbar /><form className='newManagerForm' onSubmit={handleSubmit}>
       <label>
         First Name:
         <input
           type="text"
           name="firstName"
           value={formData.firstName}
-          onChange={handleInputChange}
-        />
+          onChange={handleInputChange} />
       </label>
       <label>
         Last Name:
@@ -71,8 +72,7 @@ export function NewManager() {
           type="text"
           name="lastName"
           value={formData.lastName}
-          onChange={handleInputChange}
-        />
+          onChange={handleInputChange} />
       </label>
       <label>
         Email:
@@ -80,8 +80,7 @@ export function NewManager() {
           type="email"
           name="email"
           value={formData.email}
-          onChange={handleInputChange}
-        />
+          onChange={handleInputChange} />
       </label>
       <label>
         Password:
@@ -89,10 +88,9 @@ export function NewManager() {
           type="password"
           name="password"
           value={formData.password}
-          onChange={handleInputChange}
-        />
+          onChange={handleInputChange} />
       </label>
-      <button type="submit">Submit</button>
-    </form>
+      <button className='NewModelSubmitButton' type="submit">Submit</button>
+    </form></>
   );
 }
