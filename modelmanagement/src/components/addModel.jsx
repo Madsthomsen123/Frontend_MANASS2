@@ -16,7 +16,13 @@ export function AddModelToJobForm() {
       },
     });
     const data = await response.json();
+    if (response.ok){
+      alert("model addded to job succesfully");
+      setJobId('');
+      setModelId('');
+    }
     console.log(data);
+
   };
 
   return (

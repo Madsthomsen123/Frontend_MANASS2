@@ -37,7 +37,9 @@ export function NewManager() {
         body: JSON.stringify(formData),
       });
       if (response.ok) {
-        console.log("success");
+        alert("added succesfully")
+        setFormData(initialState);
+
       } else {
         alert("Server returned: " + JSON.stringify(await response.json()));
       }
