@@ -1,11 +1,6 @@
 import { NavLink } from "react-router-dom";
 import "./css/Navbar.css"
 
-
-const renderPage = () =>{
-    
-}
-
 export function Navbar() {
 return (
     <nav className="nav_link">

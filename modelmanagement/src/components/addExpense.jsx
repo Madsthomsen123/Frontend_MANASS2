@@ -10,6 +10,22 @@ const AddExpense = () => {
   const [date, setDate] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   
+  const decodeToken = () =>{
+    const t = localStorage.getItem('token');
+    let user = parseJwt(t);
+    return user.ModelId;
+  }
+
+  function parseJwt (token) {
+    var base64Url = token.split('.')[1];
+    var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    var jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function(c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
+
+    return JSON.parse(jsonPayload);
+}
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -20,10 +36,11 @@ const AddExpense = () => {
       };
       const data = {
         JobId: jobId,
-        ExpenseType: expenseType,
+        ModelId: decodeToken(),
+        Text: expenseType,
         Amount: amount,
         Date: date
-      };
+      }; console.log(data);
       const response = await axios.post(
         "https://localhost:7181/api/Expenses",
         data,
