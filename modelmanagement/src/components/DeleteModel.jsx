@@ -24,6 +24,8 @@ export function DeleteModel() {
       });
       if (response.ok) {
         console.log("success");
+        alert("model deleted");
+        setModelId('');
       } else {
         alert("Server returned: " + response.statusText);
         console.log(response.statusText);
