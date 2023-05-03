@@ -65,6 +65,9 @@ return(
     <NavLink to="/jobList">
     Job List   
     </NavLink>
+    <NavLink to="/addExpense">
+        Add Expense   
+    </NavLink>
     </nav>
 
 )
