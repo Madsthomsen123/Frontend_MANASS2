@@ -2,132 +2,213 @@ import { useState } from "react";
 import "./css/NewModel.css"
 import { Navbar } from "./Navbar";
 
-export function NewModel() {
-    const [firstName, setFirstName] = useState('');
-    const [lastName, setLastName] = useState('');
-    const [email, setEmail] = useState('');
-    const [phoneNo, setPhoneNo] = useState('');
-    const [addressLine1, setAddressLine1] = useState('');
-    const [addressLine2, setAddressLine2] = useState('');
-    const [zip, setZip] = useState('');
-    const [city, setCity] = useState('');
-    const [country, setCountry] = useState('');
-    const [birthDate, setBirthDate] = useState('');
-    const [nationality, setNationality] = useState('');
-    const [height, setHeight] = useState(0);
-    const [shoeSize, setShoeSize] = useState(0);
-    const [hairColor, setHairColor] = useState('');
-    const [eyeColor, setEyeColor] = useState('');
-    const [comments, setComments] = useState('');
-    const [password, setPassword] = useState('');
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-      
-        const token = localStorage.getItem('token');
-      
-        const formData = {
-          firstName,
-          lastName,
-          email,
-          phoneNo,
-          addressLine1,
-          addressLine2,
-          zip,
-          city,
-          country,
-          birthDate,
-          nationality,
-          height,
-          shoeSize,
-          hairColor,
-          eyeColor,
-          comments,
-          password
-        };
-      
-        fetch('https://localhost:7181/api/models', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
-          },
-          body: JSON.stringify(formData)
-        })
-        .then(response => response.json())
-        .then(data => console.log(data))
-        .catch(error => console.error(error));
-      };
+export function NewModel() {
+
+  
+  const initialState = {
+    firstName: '',
+    lastName: '',
+    email: '',
+    phoneNo: '',
+    addresLine1: '',
+    addresLine2: '',
+    zip: '',
+    city: '',
+    country: '',
+    birthDate: '',
+    nationality: '',
+    height: 0,
+    shoeSize: 0,
+    hairColor: '',
+    eyeColor: '',
+    comments: '',
+    password: ''
+  };
+
+  const [formData, setFormData] = useState(initialState);
+
+  function handleInputChange(event) {
+    const { name, value } = event.target;
+    setFormData((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+  
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+    console.log(formData);
+    login(formData);   
+  }
+
+  async function login(formData) {
+    const url = "https://localhost:7181/api/Models";
+    try {
+      const token = localStorage.getItem('token');
+      if (token === null) {
+        console.log("token is null");
+      }
+  
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify(formData),
+      });
+      if (response.ok) {
+        console.log("success");
+      } else {
+        alert("Server returned: " + response.statusText);
+        console.log(response.statusText);
+      }
+    } catch (err) {
+      alert("Error: " + err);
+    }
+  }
+  
+  
     
     return (
       <><Navbar /><form className="NewModelForm" onSubmit={handleSubmit}>
         <label>
           First Name:
-          <input type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
+          <input 
+          type="text" 
+          name="firstName"
+          value={formData.firstName} 
+          onChange={handleInputChange} />
         </label>
         <label>
           Last Name:
-          <input type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} />
+          <input 
+          type="text"
+          name="lastName" 
+          value={formData.lastName}
+          onChange={handleInputChange} />
         </label>
         <label>
           Email:
-          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+          <input 
+          type="email"
+          name="email" 
+          value={formData.email}
+          onChange={handleInputChange} />
         </label>
         <label>
           Phone Number:
-          <input type="tel" value={phoneNo} onChange={(e) => setPhoneNo(e.target.value)} />
+          <input 
+          type="tel" 
+          name="phoneNo"
+          value={formData.phoneNo} 
+          onChange={handleInputChange} />
         </label>
         <label>
           Address Line 1:
-          <input type="text" value={addressLine1} onChange={(e) => setAddressLine1(e.target.value)} />
+          <input 
+          type="text" 
+          name="addresLine1"
+          value={formData.addresLine1} 
+          onChange={handleInputChange}/>
         </label>
         <label>
           Address Line 2:
-          <input type="text" value={addressLine2} onChange={(e) => setAddressLine2(e.target.value)} />
+          <input 
+          type="text" 
+          name="addresLine2"
+          value={formData.addresLine2} 
+          onChange={handleInputChange} />
         </label>
         <label>
           Zip:
-          <input type="text" value={zip} onChange={(e) => setZip(e.target.value)} />
+          <input 
+          type="text" 
+          name="zip"
+          value={formData.zip} 
+          onChange={handleInputChange} />
         </label>
         <label>
           City:
-          <input type="text" value={city} onChange={(e) => setCity(e.target.value)} />
+          <input 
+          type="text" 
+          name="city"
+          value={formData.city} 
+          onChange={handleInputChange} />
         </label>
         <label>
           Country:
-          <input type="text" value={country} onChange={(e) => setCountry(e.target.value)} />
+          <input 
+          type="text" 
+          name="country"
+          value={formData.country} 
+          onChange={handleInputChange} />
         </label>
         <label>
           Birth Date:
-          <input type="datetime-local" value={birthDate} onChange={(e) => setBirthDate(e.target.value)} />
+          <input 
+          type="datetime-local" 
+          name="birthDate"
+          value={formData.birthDate}
+          onChange={handleInputChange}  />
         </label>
         <label>
           Nationality:
-          <input type="text" value={nationality} onChange={(e) => setNationality(e.target.value)} />
+          <input 
+          type="text"
+          name="nationality" 
+          value={formData.nationality} 
+          onChange={handleInputChange} />
         </label>
         <label>
           Height:
-          <input type="number" value={height} onChange={(e) => setHeight(e.target.value)} />
+          <input 
+          type="number"
+          name="height"
+          value={formData.height} 
+          onChange={handleInputChange} />
         </label>
         <label>
           Shoe Size:
-          <input type="number" value={shoeSize} onChange={(e) => setShoeSize(e.target.value)} />
+          <input 
+          type="number" 
+          name="shoeSize"
+          value={formData.shoeSize} 
+          onChange={handleInputChange} />
         </label>
         <label>
           Hair Color:
-          <input type="text" value={hairColor} onChange={(e) => setHairColor(e.target.value)} />
+          <input 
+          type="text" 
+          name="hairColor"
+          value={formData.hairColor} 
+          onChange={handleInputChange} />
         </label>
         <label>
           Eye Color:
-          <input type="text" value={eyeColor} onChange={(e) => setEyeColor(e.target.value)} />
+          <input 
+          type="text" 
+          name="eyeColor"
+          value={formData.eyeColor} 
+          onChange={handleInputChange} />
         </label>
         <label>
           Comments:
-          <textarea value={comments} onChange={(e) => setComments(e.target.value)} />
+          <textarea
+          type="text"
+          name="comments"
+          value={formData.comments} 
+          onChange={handleInputChange} />
         </label>
         <label>
           Password:
-          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+          <input 
+          type="password" 
+          name="password"
+          value={formData.password} 
+          onChange={handleInputChange} />
         </label>
         <button className="NewModelSubmitButton" type="submit">Submit</button>
       </form></>
