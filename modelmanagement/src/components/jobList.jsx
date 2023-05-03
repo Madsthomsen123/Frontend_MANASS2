@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Navbar } from "./Navbar";
 import "./css/jobsList.css"
+//import { start } from "repl";
 
 function JobList() {
   const [jobs, setJobs] = useState([]);
