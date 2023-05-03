@@ -21,7 +21,7 @@ export function AddModelToJobForm() {
 
   return (
     <><Navbar />
-    <form onSubmit={handleSubmit}>
+    <form className="AddModelForm" onSubmit={handleSubmit}>
           <label>
               Job ID:
               <input type="text" name="jobId" value={jobId} onChange={(event) => setJobId(event.target.value)} />
@@ -32,7 +32,7 @@ export function AddModelToJobForm() {
               <input type="text" name="modelId" value={modelId} onChange={(event) => setModelId(event.target.value)} />
           </label>
           <br />
-          <button type="submit">Add Model to Job</button>
+          <button className="AddModelButton" type="submit">Add Model to Job</button>
       </form></>
   );
 }
