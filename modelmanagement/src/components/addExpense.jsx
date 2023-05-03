@@ -5,7 +5,6 @@ import "./css/addExpense.css"
 
 const AddExpense = () => {
   const [jobId, setJobId] = useState("");
-  const [modelId, setModelId] = useState("");
   const [expenseType, setExpenseType] = useState("");
   const [amount, setAmount] = useState("");
   const [date, setDate] = useState("");
@@ -41,15 +40,14 @@ const AddExpense = () => {
         Text: expenseType,
         Amount: amount,
         Date: date
-      }; console.log(data);
+      }; 
       const response = await axios.post(
         "https://localhost:7181/api/Expenses",
         data,
         config
-      );
-      if (response.ok) {
+      );console.log(response);
+      if (response.status===201) {
         setJobId("");
-        setModelId("");
         setExpenseType("");
         setAmount("");
         setDate("");
@@ -76,13 +74,6 @@ const AddExpense = () => {
           onChange={(e) => setJobId(e.target.value)}
         />
 
-        <label htmlFor="modelId">Model Id:</label>
-        <input
-          type="text"
-          id="modelId"
-          value={modelId}
-          onChange={(e) => setModelId(e.target.value)}
-        />
 
         <label htmlFor="expenseType">Expense Type:</label>
         <input

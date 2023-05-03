@@ -44,9 +44,6 @@ return (
     <NavLink to="/jobList">
         Job List    
     </NavLink>
-    <NavLink to="/addExpense">
-        Add Expense   
-    </NavLink>
     <NavLink to="/addModel">
         Add model   
     </NavLink>
