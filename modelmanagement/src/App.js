@@ -28,9 +28,6 @@ function App() {
           <Route path="/addExpense" element={<AddExpense />} />
         </Routes>
       </Router>
-     
-      
-
     </div>
 );
 }
