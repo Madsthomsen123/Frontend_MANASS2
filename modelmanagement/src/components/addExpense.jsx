@@ -5,6 +5,7 @@ import "./css/addExpense.css"
 
 const AddExpense = () => {
   const [jobId, setJobId] = useState("");
+  const [modelId, setModelId] = useState("");
   const [expenseType, setExpenseType] = useState("");
   const [amount, setAmount] = useState("");
   const [date, setDate] = useState("");
@@ -20,17 +21,20 @@ const AddExpense = () => {
       };
       const data = {
         JobId: jobId,
+        ModelId: modelId,
         ExpenseType: expenseType,
         Amount: amount,
         Date: date
       };
+      console.log(data);
       const response = await axios.post(
         "https://localhost:7181/api/Expenses",
         data,
         config
       );
-      if (response.status === 201) {
+      if (response.ok) {
         setJobId("");
+        setModelId("");
         setExpenseType("");
         setAmount("");
         setDate("");
@@ -47,7 +51,7 @@ const AddExpense = () => {
     <div>
         <Navbar/>
       <h2>Add Expense</h2>
-      {errorMessage && <div>{errorMessage}</div>}
+      {errorMessage && <div>{errorMessage.toString()}</div>}
       <form className="addExpenseForm" onSubmit={handleSubmit}>
         <label htmlFor="jobId">Job Id:</label>
         <input
@@ -55,6 +59,14 @@ const AddExpense = () => {
           id="jobId"
           value={jobId}
           onChange={(e) => setJobId(e.target.value)}
+        />
+
+        <label htmlFor="modelId">Model Id:</label>
+        <input
+          type="text"
+          id="modelId"
+          value={modelId}
+          onChange={(e) => setModelId(e.target.value)}
         />
 
         <label htmlFor="expenseType">Expense Type:</label>
