@@ -21,12 +21,15 @@ function JobList() {
     });
   }, []);
 
+  //For debugging
+  //console.log(jobs);
   return (
     <div>
       <Navbar/>
       <table className="job-table">
   <thead>
     <tr>
+      <th>Job ID</th>
       <th>Customer</th>
       <th>Start Date</th>
       <th>Days</th>
@@ -35,8 +38,9 @@ function JobList() {
     </tr>
   </thead>
   <tbody>
-    {jobs.map((job) => (
-      <tr key={job.id}>
+    {jobs.map((job, index) => (
+      <tr key={index}>
+        <td>{job.jobId}</td>
         <td>{job.customer}</td>
         <td>{new Date(job.startDate).toLocaleString()}</td>
         <td>{job.days}</td>
