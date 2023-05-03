@@ -42,7 +42,10 @@ return (
         Create Job   
     </NavLink>
     <NavLink to="/jobList">
-        Job List   
+        Job List    
+    </NavLink>
+    <NavLink to="/addExpense">
+        Add Expense   
     </NavLink>
     <NavLink to="/addModel">
         Add model   
