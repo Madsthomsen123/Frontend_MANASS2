@@ -39,7 +39,7 @@ export function NewManager() {
       if (response.ok) {
         console.log("success");
       } else {
-        alert("Server returned: " + response.statusText);
+        alert("Server returned: " + JSON.stringify(await response.json()));
       }
     } catch (err) {
       alert("Error: " + err);
