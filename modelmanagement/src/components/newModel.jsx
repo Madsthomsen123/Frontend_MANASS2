@@ -60,7 +60,8 @@ export function NewModel() {
         body: JSON.stringify(formData),
       });
       if (response.ok) {
-        console.log("success");
+        alert("New Model added")
+        setFormData(initialState);
       } else {
         alert("Server returned: " + response.statusText);
         console.log(response.statusText);
