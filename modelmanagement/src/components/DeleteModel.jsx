@@ -3,11 +3,13 @@ import "./css/DeleteModel.css";
 import { Navbar } from "./Navbar";
 
 export function DeleteModel() {
+  const [jobId, setJobId] = useState("");
   const [modelId, setModelId] = useState("");
 
   async function handleDelete(event) {
     event.preventDefault();
-    const url = `https://localhost:7181/api/Models/${modelId}`;
+    const url = `https://localhost:7181/api/Jobs/${jobId}/model/${modelId}
+    `;
 
     try {
       const token = localStorage.getItem("token");
@@ -26,6 +28,7 @@ export function DeleteModel() {
         console.log("success");
         alert("model deleted");
         setModelId('');
+        setJobId('');
       } else {
         alert("Server returned: " + response.statusText);
         console.log(response.statusText);
@@ -35,8 +38,11 @@ export function DeleteModel() {
     }
   }
 
-  function handleInputChange(event) {
+  function handleInputChangeModel(event) {
     setModelId(event.target.value);
+  }
+  function handleInputChangeJob(event) {
+    setJobId(event.target.value);
   }
 
   return (
@@ -48,7 +54,16 @@ export function DeleteModel() {
             type="text"
             name="modelId"
             value={modelId}
-            onChange={handleInputChange}
+            onChange={handleInputChangeModel}
+          />
+        </label>
+        <label>
+          Job ID:
+          <input
+            type="text"
+            name="jobId"
+            value={jobId}
+            onChange={handleInputChangeJob}
           />
         </label>
         <button className="DeleteModelSubmitButton" type="submit">

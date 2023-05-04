@@ -45,10 +45,10 @@ return (
         Job List    
     </NavLink>
     <NavLink to="/addModel">
-        Add model   
+        Add model to job   
     </NavLink>
     <NavLink to="/deleteModel">
-        Delete Model
+        Delete Model from job
     </NavLink>
 
 </nav>
